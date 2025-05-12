@@ -207,17 +207,21 @@ export class BodyComponent extends Component {
     children = children || this.props.children
 
     if (rawXML) {
-      return children.map((child) => {
-        child.attributes = {...attributes, ...child.attributes}
-        return jsonToXML(child)
-      }).join('\n')
+      return children
+        .map((child) => {
+          child.attributes = { ...attributes, ...child.attributes }
+          return jsonToXML(child)
+        })
+        .join('\n')
     }
 
     const sibling = children.length
 
-    const rawComponents = filter(this.context.components, (c) =>
-      c.isRawElement(),
-    )
+    const rawComponents = filter(this.context.components, (c) => {
+      if (c.isRawElement) {
+        return c.isRawElement()
+      }
+    })
     const nonRawSiblings = children.filter(
       (child) => !find(rawComponents, (c) => c.getTagName() === child.tagName),
     ).length

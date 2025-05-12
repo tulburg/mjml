@@ -30,7 +30,7 @@
     "juice": "^10.0.0",
     "lodash": "^4.17.21",
     "mjml-migrate": "4.15.3",
-    "mjml-parser-xml": "4.15.3",
+    "mjml-parser-xml": "link:../../../Library/pnpm/global/5/node_modules/mjml-parser-xml",
     "mjml-validator": "4.15.3"
   },
   "devDependencies": {

@@ -6,6 +6,7 @@ export default class MjBody extends BodyComponent {
   static allowedAttributes = {
     width: 'unit(px)',
     'background-color': 'color',
+    style: 'string',
   }
 
   static defaultAttributes = {
@@ -22,7 +23,9 @@ export default class MjBody extends BodyComponent {
   getStyles() {
     return {
       div: {
-        'background-color': this.getAttribute('background-color'),
+        'background-color': `${this.getAttribute('background-color')}; ${
+          this.getAttribute('style') ? this.getAttribute('style') : ''
+        }`,
       },
     }
   }

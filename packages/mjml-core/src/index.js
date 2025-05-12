@@ -97,17 +97,31 @@ export default function mjml2html(mjml, options = {}) {
     handleMjmlConfigComponents(packages, componentRootPath, registerComponent)
   }
 
+  // Register default configs
+  // if (isNode) {
+  //   const except = [
+  //     'mjml',
+  //     'mjml-browser',
+  //     'mjml-cli',
+  //     'mjml-migrate',
+  //     'mjml-core',
+  //     'mjml-parser-xml',
+  //     'mjml-preset-core',
+  //     'mjml-validator',
+  //   ];
+  //
+  //   for (const key in globalComponents) {
+  //     if (except.indexOf(key) === -1) {
+  //       registerComponent(key, globalComponents[key])
+  //     }
+  //   }
+  //   registerComponent('mj-include', require('./components/mj-include'))
+  //   registerComponent('mj-raw', require('./components/mj-raw'))
+  // }
+
   const {
     beautify = false,
-    fonts = {
-      'Open Sans':
-        'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700',
-      'Droid Sans':
-        'https://fonts.googleapis.com/css?family=Droid+Sans:300,400,500,700',
-      Lato: 'https://fonts.googleapis.com/css?family=Lato:300,400,500,700',
-      Roboto: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700',
-      Ubuntu: 'https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700',
-    },
+    fonts = {},
     keepComments,
     minify = false,
     minifyOptions = {},
@@ -206,7 +220,7 @@ export default function mjml2html(mjml, options = {}) {
   const mjOutsideRaws = filter(mjml.children, { tagName: 'mj-raw' })
 
   const processing = (node, context, parseMJML = identity) => {
-    if (!node) {
+    if (node === null) {
       return
     }
 

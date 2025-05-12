@@ -14,6 +14,7 @@ export default class MjSection extends BodyComponent {
     'background-position': 'string',
     'background-position-x': 'string',
     'background-position-y': 'string',
+    'box-shadow': 'string',
     border: 'string',
     'border-bottom': 'string',
     'border-left': 'string',
@@ -98,6 +99,7 @@ export default class MjSection extends BodyComponent {
         ...(fullWidth ? {} : background),
         margin: '0px auto',
         'border-radius': this.getAttribute('border-radius'),
+        'box-shadow': this.getAttribute('box-shadow'),
         'max-width': containerWidth,
       },
       innerDiv: {
