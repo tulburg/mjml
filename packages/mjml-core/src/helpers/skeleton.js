@@ -26,7 +26,9 @@ export default function skeleton(options) {
   } = options
 
   return `${beforeDoctype ? `${beforeDoctype}\n` : ''}<!doctype html>
-<html lang="${lang}" dir="${dir}" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html 
+lang="${lang}" style="background-color: ${backgroundColor}"
+dir="${dir}" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"1>
   <head>
     <title>${title}</title>
     <!--[if !mso]><!-->

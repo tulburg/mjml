@@ -97,28 +97,6 @@ export default function mjml2html(mjml, options = {}) {
     handleMjmlConfigComponents(packages, componentRootPath, registerComponent)
   }
 
-  // Register default configs
-  // if (isNode) {
-  //   const except = [
-  //     'mjml',
-  //     'mjml-browser',
-  //     'mjml-cli',
-  //     'mjml-migrate',
-  //     'mjml-core',
-  //     'mjml-parser-xml',
-  //     'mjml-preset-core',
-  //     'mjml-validator',
-  //   ];
-  //
-  //   for (const key in globalComponents) {
-  //     if (except.indexOf(key) === -1) {
-  //       registerComponent(key, globalComponents[key])
-  //     }
-  //   }
-  //   registerComponent('mj-include', require('./components/mj-include'))
-  //   registerComponent('mj-raw', require('./components/mj-raw'))
-  // }
-
   const {
     beautify = false,
     fonts = {},
